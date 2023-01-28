@@ -1,0 +1,10 @@
+
+const calcularResultado = () => {
+    if (input) {
+      setInput(parseFloat(evaluate(input).toFixed(2)));
+      setInput(evaluate(input));
+    } else{
+      alert("No");
+    }
+    
+  }
