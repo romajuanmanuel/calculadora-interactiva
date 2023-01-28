@@ -2,25 +2,23 @@ import "./App.css";
 import Boton from "./componentes/Boton";
 import Pantalla from "./componentes/Pantalla";
 import BotonClear from "./componentes/BotonClear";
-import { useState } from 'react';
-import { evaluate } from 'mathjs';
+import { useState } from "react";
+import { evaluate } from "mathjs";
 
 function App() {
+  const [input, setInput] = useState("");
 
-  const [input, setInput] = useState('');
-
-  const agregarInput = val => {
+  const agregarInput = (val) => {
     setInput(input + val);
   };
 
   const calcularResultado = () => {
     if (input) {
-      setInput(evaluate(input));
-    } else{
+      setInput(parseFloat(evaluate(input).toFixed(2)));
+    } else {
       alert("No");
     }
-    
-  }
+  };
 
   return (
     <div className="App">
@@ -46,17 +44,21 @@ function App() {
           <Boton manejarClick={agregarInput}>*</Boton>
         </div>
         <div className="fila">
-          <Boton manejarClick={calcularResultado}>=</Boton>
-          <Boton manejarClick={agregarInput}>0</Boton>
-          <Boton manejarClick={agregarInput}>.</Boton>
-          <Boton manejarClick={agregarInput}>/</Boton>
+          <Boton className="base-btn first-btn" manejarClick={calcularResultado}>
+            =
+          </Boton>
+          <Boton className="base-btn" manejarClick={agregarInput}>
+            0
+          </Boton>
+          <Boton className="base-btn" manejarClick={agregarInput}>
+            .
+          </Boton>
+          <Boton className="base-btn" manejarClick={agregarInput}>
+            /
+          </Boton>
         </div>
         <div className="fila">
-          <BotonClear manejarClear={() => setInput('')}>
-            
-            Clear
-          
-          </BotonClear>
+          <BotonClear manejarClear={() => setInput("")}>Clear</BotonClear>
         </div>
       </div>
     </div>

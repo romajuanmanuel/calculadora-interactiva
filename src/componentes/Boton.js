@@ -9,7 +9,7 @@ import '../hojas-de-estilo/Boton.css'
 
     return(
         <div
-        className={`boton-contenedor ${esOperador(props.children) ? 'operador' : ''} `.trimEnd()}
+        className={`${props.className} boton-contenedor ${esOperador(props.children) ? 'operador' : ''} `.trimEnd()}
         onClick={() => props.manejarClick(props.children)}>
             {props.children}
         </div> 
